@@ -1,34 +1,37 @@
+import * as React from 'react';
+import { Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import UserStack from './UserStack';
+import InicioSesion from './InicioSesion';
 
-import { StyleSheet, Text, View } from 'react-native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import Peliculas from './Peliculas'
-
-export default function App() {
+function HomeScreen() {
   return (
-    <SafeAreaProvider>
-      <Peliculas/>
-      {/* <View style={styles.container}>
-        <Card>
-        <Image
-              style={{width:"100%",height:100}}
-              resizeMode="contain"
-              source={{ uri: "https://avatars0.githubusercontent.com/u/32242596?s=460&u=1ea285743fc4b083f95d6ee0be2e7bb8dcfc676e&v=4" }}
-        />
-        <Card.Title>Marco Antonio Carrillo Osuna</Card.Title>
-        <Card.Divider/>
-        <Text>Edad: 20</Text>
-         </Card>
-      </View> */}
-      
-    </SafeAreaProvider>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Home!</Text>
+    </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+function SettingsScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Settings!</Text>
+    </View>
+  );
+}
+
+const Tab = createBottomTabNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Settings" component={SettingsScreen} />
+        <Tab.Screen name="Users" component={UserStack}  options={{ headerShown: false }} />
+        <Tab.Screen name="Login" component={InicioSesion}  options={{ headerShown: false }} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+}
