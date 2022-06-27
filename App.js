@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import UserStack from './UserStack';
 import InicioSesion from './InicioSesion';
+import Subir from './Subir';
 
 function HomeScreen() {
   return (
@@ -31,6 +32,7 @@ export default function App() {
         <Tab.Screen name="Settings" component={SettingsScreen} />
         <Tab.Screen name="Users" component={UserStack}  options={{ headerShown: false }} />
         <Tab.Screen name="Login" component={InicioSesion}  options={{ headerShown: false }} />
+        <Tab.Screen name="Image" component={Subir}  options={{ headerShown: false }} />
       </Tab.Navigator>
     </NavigationContainer>
   );

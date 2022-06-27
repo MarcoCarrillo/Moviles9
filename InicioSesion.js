@@ -22,9 +22,9 @@ export default function InicioSesion(){
     }
     return (
         <View style={{ flex: 1, padding:24 }}>
-            <input onChange={(e) => setusuario(e.nativeEvent.target.value)} type={Text}></input>
+            <input  onChange={(e) => setusuario(e.nativeEvent.target.value)} type={Text}></input>
             <input onChange={(e) => setpassword(e.nativeEvent.target.value)} type={Text}></input>
-            <Button title="Presioname" onPress={() => registrar()}></Button>
+            <Button title="Crear Usuario" onPress={() => registrar()}></Button>
         </View>
     )
 }
