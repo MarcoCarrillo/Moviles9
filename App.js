@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import UserStack from './UserStack';
 import InicioSesion from './InicioSesion';
 import Subir from './Subir';
+import Login from './Login';
 
 function HomeScreen() {
   return (
@@ -28,11 +29,12 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Settings" component={SettingsScreen} />
-        <Tab.Screen name="Users" component={UserStack}  options={{ headerShown: false }} />
-        <Tab.Screen name="Login" component={InicioSesion}  options={{ headerShown: false }} />
-        <Tab.Screen name="Image" component={Subir}  options={{ headerShown: false }} />
+        {/* <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Settings" component={SettingsScreen} /> */}
+        {/* <Tab.Screen name="Users" component={UserStack}  options={{ headerShown: false }} /> */}
+        <Tab.Screen name="Login" component={Login} />
+        <Tab.Screen name="Registro" component={InicioSesion}  />
+        <Tab.Screen name="Image" component={Subir}  />
       </Tab.Navigator>
     </NavigationContainer>
   );
