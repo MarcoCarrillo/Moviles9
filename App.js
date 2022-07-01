@@ -34,7 +34,7 @@ export default function App() {
         {/* <Tab.Screen name="Users" component={UserStack}  options={{ headerShown: false }} /> */}
         <Tab.Screen name="Login" component={Login} />
         <Tab.Screen name="Registro" component={InicioSesion}  />
-        <Tab.Screen name="Image" component={Subir}  />
+        <Tab.Screen name="Imagenes" component={Subir}  />
       </Tab.Navigator>
     </NavigationContainer>
   );
