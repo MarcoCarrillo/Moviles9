@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Button, Text, Image} from 'react-native';
+import {ScrollView, Button, Text, Image} from 'react-native';
 import { firebaseApp } from './FirebaseConfig';
 import { getStorage, ref, uploadString, listAll, getDownloadURL } from 'firebase/storage';
 import { collection, addDoc, getFirestore, getDocs} from 'firebase/firestore';
@@ -56,39 +56,13 @@ export default function Subir() {
         }
     }
 
-    const resultImages = function () {
-
-        const storage = getStorage();
-
-        // Create a reference under which you want to list
-        const listRef = ref(storage, 'imagenes/');
-
-        console.log(listRef);
-        console.log(storage);
-        // Find all the prefixes and items.
-
-        listAll(listRef)
-        .then((res) => {
-            res.items.forEach((folderRef) => {
-            console.log(res.items);
-            // All the prefixes under listRef.
-            // You may call listAll() recursively on them.
-            });
-            res.items.forEach((itemRef) => {
-            // All the items under listRef.
-            });
-        }).catch((error) => {
-            // Uh-oh, an error occurred!
-        });
-    }
     let datos = [];
     const probarDB = async () => {
         const db = getFirestore();
-        const querySnapshot = await getDocs(collection(db, "img"));
-
-        
+        const querySnapshot = await getDocs(collection(db, "img"));  
         querySnapshot.forEach((doc) => {
             const prueba = doc;
+            console.log(doc);
             console.log(prueba._document.data.value.mapValue.fields.url_image.stringValue);
             images.push(prueba._document.data.value.mapValue.fields.url_image);
             setUrls({ 
@@ -101,10 +75,9 @@ export default function Subir() {
         console.log(urls);
     }
     
-    let usuarios = {name: 'usuario_01',name: 'usuario_02', name: 'usuario_03'};
-    
+
     return(
-        <View style={{ flex: 1, padding:24 }}>
+        <ScrollView style={{ flex: 1, padding:24 }}>
             <br></br>
             <Text>Carga de Imagenes</Text>
             <br></br>
@@ -130,6 +103,6 @@ export default function Subir() {
                 
             })}
             
-        </View>
+        </ScrollView>
     )
 }
